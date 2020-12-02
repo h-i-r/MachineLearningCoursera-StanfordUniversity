@@ -30,11 +30,7 @@ X = [ones(m, 1) X];
 %       for each row.
 %       
 
-predict = sigmoid(X*all_theta'); % 5000 * 401 by 401*10
+predict = sigmoid(X*all_theta');
 [~, p] = max(predict, [], 2);
 
-% M = max(A,[],dim) returns the largest elements along dimension dim.
-% For example, if A is a matrix, then max(A,[],2) is a column vector 
-% containing the maximum value of each row.
-#[~, p] where ~ means discard the 1st value that max()return so we will ignore index of max value
 end
