@@ -27,15 +27,15 @@ centroids = zeros(K, n);
 %
 
 
-numberOfElementsHavingCentroid_k = zeros(K,1);
-sumOfElementsHavingCentroid_k = zeros(K,n);
+KCentroid = zeros(K,1);
+sumKCentroid = zeros(K,n);
 for i = 1:size(idx,1)
 	z = idx(i);
-	numberOfElementsHavingCentroid_k(z) += 1;
-	sumOfElementsHavingCentroid_k(z,:) += X(i,:);
+	KCentroid(z) += 1;
+	sumKCentroid(z,:) += X(i,:);
 end
 
-centroids = sumOfElementsHavingCentroid_k./numberOfElementsHavingCentroid_k;
+centroids = sumKCentroid./KCentroid;
 
 
 % =============================================================
