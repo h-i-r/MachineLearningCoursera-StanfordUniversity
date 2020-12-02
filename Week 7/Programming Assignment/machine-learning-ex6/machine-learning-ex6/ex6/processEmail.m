@@ -104,10 +104,6 @@ while ~isempty(email_contents)
         end
     end        
 
-    % =============================================================
-
-
-    % Print to screen, ensuring that the output lines are not too long
     if (l + length(str) + 1) > 78
         fprintf('\n');
         l = 0;
@@ -116,8 +112,5 @@ while ~isempty(email_contents)
     l = l + length(str) + 1;
 
 end
-
-% Print footer
-fprintf('\n\n=========================\n');
 
 end
