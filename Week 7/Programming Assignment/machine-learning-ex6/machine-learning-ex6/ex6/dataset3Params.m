@@ -23,8 +23,9 @@ sigma = 0.3;
 %        mean(double(predictions ~= yval))
 %
 
-results = eye(64,3);#rows = 8^2= 64 && columns= C_test, sigma_test, prediction_error
-errorRow = 0; # index
+
+results = eye(64,3);
+errorRow = 0; 
 
 for C_test = [0.01, 0.03, 0.1, 0.3, 1, 3, 10, 30]
     for sigma_test = [0.01, 0.03, 0.1, 0.3, 1, 3, 10, 30]
@@ -36,7 +37,7 @@ for C_test = [0.01, 0.03, 0.1, 0.3, 1, 3, 10, 30]
     end
 end
 
-sorted_results = sortrows(results, 3); % sort matrix by column #3, the error, ascending
+sorted_results = sortrows(results, 3); 
 
 C = sorted_results(1,1);
 sigma = sorted_results(1,2);
@@ -50,20 +51,3 @@ disp(sigma);
 % =========================================================================
 
 end
-
-
-#minError = Inf;
-#curC = Inf;
-#cur_sigma = Inf;
-
-#for i = 1:8
-	#for j = 1:8
-		#model = svmTrain(X, y, choice(i), @(x1, x2) gaussianKernel(x1, x2, choice(j)));
-		#predictions = svmPredict(model,Xval);
-		#error = mean(double(predictions ~= yval));
-		#if error < minError
-			#minError = error;
-			#curC = choice(i);
-			#cur_sigma = choice(j);
-		#end
-#end
